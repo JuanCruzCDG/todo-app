@@ -1,0 +1,25 @@
+{
+  "name": "app-tareas",
+  "version": "0.0.0",
+  "description": "Aplicación sencilla para crear tareas y hacerles seguimiento",
+  "keywords": [
+    "task",
+    "todo",
+    "tareas",
+    "notas"
+  ],
+  "license": "MIT",
+  "author": "Juan Cruz C. De Gaetano",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
