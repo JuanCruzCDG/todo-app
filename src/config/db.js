@@ -8,11 +8,6 @@ const connection = mysql.createConnection({
     schema : process.env.DB_NAME || 'app_tareas'
 });
 
-/**
- * Obtiene una instancia del pool de conexiones.
- * Si no existe, la crea con las credenciales del archivo .env.
- * @returns {mysql.Pool} El pool de conexiones de MySQL.
- */
 const initDatabase = function() {
     connection.connect((error) => {
         if (error) {
@@ -23,13 +18,17 @@ const initDatabase = function() {
         let taskTableQuery = `
             CREATE TABLE IF NOT EXISTS tareas(
                 id INT AUTO_INCREMENT PRIMARY KEY,
+                created_at DATETIME,
+                updated_at DATETIME,
+                completed_at DATETIME,
+                deleted_at DATETIME,
+                deleted BOOL,
                 title VARCHAR(128),
                 description VARCHAR(255),
                 details TEXT,
                 deadline DATETIME,
                 completed BOOL,
                 link VARCHAR(255),
-                related INT,
                 previous INT,
                 next INT,
                 FOREING KEY (previous) REFERENCE tareas(id),
@@ -47,17 +46,6 @@ const initDatabase = function() {
             )
         `;
 
-        let metaTableQuery = `
-            CREATE TABLE IF NOT EXISTS metadata(
-                id INT,
-                created_at DATETIME,
-                updated_at DATETIME,
-                deleted_at DATETIME,
-                deleted DATETIME,
-                FOREING KEY (id) REFERENCE tareas(id) 
-            )
-        `; 
-
         connection.query(taskTableQuery, (error, results) => {
             if (error) {
                 console.error("Hubo un error al crear la tabla 'tareas': ", error);
@@ -69,14 +57,6 @@ const initDatabase = function() {
         connection.query(realationsTableQuery, (error, results) => {
             if (error) {
                 console.error("Hubo un error al crear la tabla 'relaciones': ", error);
-                return;
-            }
-            console.log("Conexión exitosa: ", results);
-        });
-
-        connection.query(metaTableQuery, (error, results) => {
-            if (error) {
-                console.error("Hubo un error al crear la tabla 'metadata': ", error);
                 return;
             }
             console.log("Conexión exitosa: ", results);

@@ -6,42 +6,41 @@
  */
 class Task {
     /**
-     * Información para la base de datos.
+     * Fecha en la que se creó la tarea
      * @private
-     * @type {mixed[]}
+     * @type {Date}
      */
-    #meta = {
-        /**
-         * Fecha en la que se creó la tarea
-         * @private
-         * @type {Date}
-         */
-        createdAt: null,
-        /**
-         * Fecha en la que se actualizó la tarea
-         * @private
-         * @type {Date}
-         */
-        updatedAt: null,
-        /**
-         * Fecha en al que se eliminó la tarea
-         * @private
-         * @type {Date}
-         */
-        deletedAt: null,
-        /**
-         * Indicador si la tarea está borrada o no
-         * @private
-         * @type {boolean}
-         */
-        deleted: null,
-        /**
-         * Índice de la tarea en la base de datos
-         * @private
-         * @type {number}
-         */
-        index: 0
-    };
+    createdAt = null;
+    /**
+     * Fecha en la que se actualizó la tarea
+     * @private
+     * @type {Date}
+     */
+    updatedAt = null;
+    /**
+     * Fecha en al que se eliminó la tarea
+     * @private
+     * @type {Date}
+     */
+    deletedAt = null;
+    /**
+     * Fecha en al que se completó la tarea
+     * @private
+     * @type {Date}
+     */
+    completedAt = null;
+    /**
+     * Indicador si la tarea está borrada o no
+     * @private
+     * @type {boolean}
+     */
+    deleted = null;
+    /**
+     * Índice de la tarea en la base de datos
+     * @private
+     * @type {number}
+     */
+    index = 0;
     /**
      * Título de la tarea
      * @public
