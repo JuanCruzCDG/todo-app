@@ -1,6 +1,5 @@
 /**
  * @class Task
- *
  * @classdesc Modelo de tarea
  * 
  * Entidad que contiene las propiedades de una tarea.
@@ -11,13 +10,19 @@ class Task {
      * @private
      * @type {mixed[]}
      */
-    meta = {
+    #meta = {
         /**
          * Fecha en la que se creó la tarea
          * @private
          * @type {Date}
          */
         createdAt: null,
+        /**
+         * Fecha en la que se actualizó la tarea
+         * @private
+         * @type {Date}
+         */
+        updatedAt: null,
         /**
          * Fecha en al que se eliminó la tarea
          * @private
@@ -72,7 +77,7 @@ class Task {
      * @public
      * @type {Task[]}
      */
-    realted = [];
+    related = [];
     /**
      * Tarea previa a completar ésta. 
      * @public
@@ -85,6 +90,12 @@ class Task {
      * @type {Task}
      */
     next = null;
+    /**
+     * Indicador si la tarea fue completada.
+     * @public
+     * @type {boolean}
+     */
+    completed = null;
 };
 
 export default Task;
