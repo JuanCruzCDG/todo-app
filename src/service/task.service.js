@@ -25,12 +25,14 @@ const TaskService = {
     createTask: async function(task) {
         try {
             validator.validateTask(task);
+            validator.validateFiledTypes(task);
             return await TaskRepository.createTask(task);
         } catch (error) { return error; }
     },
     updateTask: async function(task) {
         try {
             validator.validateTask(task);
+            validator.validateFiledTypes(task);
             return await TaskRepository.updateTask(task);
         } catch (error) { return error; }
     },

@@ -17,20 +17,20 @@ const initDatabase = function() {
 
         let taskTableQuery = `
             CREATE TABLE IF NOT EXISTS tareas(
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                created_at DATETIME,
-                updated_at DATETIME,
-                completed_at DATETIME,
-                deleted_at DATETIME,
-                deleted BOOL,
+                id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                completed_at DATETIME DEFAULT NULL,
+                deleted_at DATETIME DEFAULT NULL,
+                deleted BOOL NOT NULL DEFAULT FALSE,
                 title VARCHAR(128),
                 description VARCHAR(255),
                 details TEXT,
-                deadline DATETIME,
-                completed BOOL,
-                link VARCHAR(255),
-                previous INT,
-                next INT,
+                deadline DATETIME DEFAULT NULL,
+                completed BOOL NOT NULL DEFAULT FALSE,
+                link VARCHAR(255) NOT NULL,
+                previous INT DEFAULT NULL,
+                next INT DEFAULT NULL,
                 FOREING KEY (previous) REFERENCE tareas(id),
                 FOREING KEY (next) REFERENCE tareas(id)
             )
@@ -38,9 +38,9 @@ const initDatabase = function() {
 
         let realationsTableQuery = `
             CREATE TABLE IF NOT EXISTS relaciones(
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                task_id INT,
-                related_task_id INT,
+                id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+                task_id INT NOT NULL,
+                related_task_id INT NOT NULL,
                 FOREING KEY (task_id) REFERENCE tareas(id),
                 FOREING KEY (related_task_id) REFERENCE tareas(id)
             )

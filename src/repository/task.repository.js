@@ -68,15 +68,47 @@ const TaskRepository = {
         } catch (error) { return error; }
     },
     createTask: async function(task) {
-        // guardar la nueva tarea recibida
+        // acá ya viene todo validado, no deberían haber tipos erroneos para los campos.
         try {
-            
+            var query = `
+                INSERT INTO tareas (
+                    title,
+                    description,
+                    details,
+                    deadline,
+                    link,
+                    previous,
+                    next
+                )
+                VALUES (
+                    ${task.title},
+                    ${task.description},
+                    ${task.details},
+                    ${task.deadline},
+                    ${task.link},
+                    ${task.previous},
+                    ${task.next}
+                )
+            `;
+
+            connection.query(query, (error, results) => {
+                if (error) {
+                    console.error("Falló al intentar crear la tarea: ", error);
+                    return error;
+                }
+
+                return results;
+            });
         } catch (error) { return error; }
     },
     updateTask: async function(task) {
         // actualizar los datos de la tarea
         try {
-            
+            var query = `
+                UPDATE tareas
+                SET
+                    
+            `;
         } catch (error) { return error; }
     },
     deleteTask: async function(id) {
