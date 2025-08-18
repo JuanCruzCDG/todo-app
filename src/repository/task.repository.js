@@ -5,8 +5,7 @@ const TaskRepository = {
     getTaskById: async function(id) {
         try {
             var task = new Task();
-
-            var query = `SELECT * FROM tareas WHERE id = ${id}`;
+            const query = `SELECT * FROM tareas WHERE id = ${id}`;
 
             connection.query(query, (error, results) => {
                 if (error) {
@@ -30,7 +29,7 @@ const TaskRepository = {
                 task.next        = results["next_id"];
             });
 
-            var related = `
+            const related = `
                 SELECT * FROM relaciones r
                 LEFT JOIN tareas t ON t.id = r.id
                 WHERE r.id = ${id}
@@ -51,7 +50,7 @@ const TaskRepository = {
     getAllTasks: async function() {
         try {
             var tasks = [];
-            var query = "SELECT id FROM tareas";
+            const query = "SELECT id FROM tareas";
 
             connection.query(query, (error, results) => {
                 if (error) {
@@ -68,9 +67,8 @@ const TaskRepository = {
         } catch (error) { return error; }
     },
     createTask: async function(task) {
-        // acá ya viene todo validado, no deberían haber tipos erroneos para los campos.
         try {
-            var query = `
+            const query = `
                 INSERT INTO tareas (
                     title,
                     description,
@@ -102,19 +100,26 @@ const TaskRepository = {
         } catch (error) { return error; }
     },
     updateTask: async function(task) {
-        // actualizar los datos de la tarea
         try {
-            var query = `
+            const query = `
                 UPDATE tareas
-                SET
+                SET 
                     
             `;
         } catch (error) { return error; }
     },
     deleteTask: async function(id) {
-        // borrar la tarea con ese id
         try {
-            
+            const query = `DELETE FROM tareas WHERE id = ${id}`;
+
+            connection.query(query, (error, results) => {
+                if (error) {
+                    console.error("Ocurrió un error al eliminar la tarea: ", error);
+                    return error;
+                }
+
+                return results;
+            });
         } catch (error) { return error; }
     }
 };

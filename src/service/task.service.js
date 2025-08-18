@@ -31,8 +31,11 @@ const TaskService = {
     },
     updateTask: async function(task) {
         try {
+            const task = await this.getTaskById(task.id);
+
             validator.validateTask(task);
             validator.validateFiledTypes(task);
+
             return await TaskRepository.updateTask(task);
         } catch (error) { return error; }
     },
