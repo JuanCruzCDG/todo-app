@@ -7,7 +7,7 @@ const TaskRepository = {
             var task = new Task();
             const query = `SELECT * FROM tareas WHERE id = ${id}`;
 
-            connection.query(query, (error, results) => {
+            await connection.query(query).then((error, results) => {
                 if (error) {
                     console.error("Ocurrió un error obteniendo los datos de la tarea: ", error);
                     return error;
@@ -35,7 +35,7 @@ const TaskRepository = {
                 WHERE r.id = ${id}
             `;
 
-            connection.query(related, (error, results) =>{
+            await connection.query(related).then((error, results) =>{
                 if (error) {
                     console.error("Ocurrió un error obteniendo los datos de la tarea: ", error);
                     return error;
@@ -52,7 +52,7 @@ const TaskRepository = {
             var tasks = [];
             const query = "SELECT id FROM tareas";
 
-            connection.query(query, (error, results) => {
+            await connection.query(query).then((error, results) => {
                 if (error) {
                     console.error("Ocurrió un error obteniendo los datos de la base: ", error);
                     return error;
@@ -89,7 +89,7 @@ const TaskRepository = {
                 )
             `;
 
-            connection.query(query, (error, results) => {
+            await connection.query(query).then((error, results) => {
                 if (error) {
                     console.error("Falló al intentar crear la tarea: ", error);
                     return error;
@@ -101,18 +101,18 @@ const TaskRepository = {
     },
     updateTask: async function(task) {
         try {
-            const query = `
-                UPDATE tareas
-                SET 
+            // const query = `
+            //     UPDATE tareas
+            //     SET 
                     
-            `;
+            // `;
         } catch (error) { return error; }
     },
     deleteTask: async function(id) {
         try {
             const query = `DELETE FROM tareas WHERE id = ${id}`;
 
-            connection.query(query, (error, results) => {
+            await connection.query(query).then((error, results) => {
                 if (error) {
                     console.error("Ocurrió un error al eliminar la tarea: ", error);
                     return error;
