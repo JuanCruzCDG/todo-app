@@ -17,20 +17,20 @@ const initDatabase = function() {
 
         let taskTableQuery = `
             CREATE TABLE IF NOT EXISTS tareas(
-                id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-                completed_at DATETIME DEFAULT NULL,
-                deleted_at DATETIME DEFAULT NULL,
-                deleted BOOL NOT NULL DEFAULT FALSE,
-                title VARCHAR(128),
-                description VARCHAR(255),
-                details TEXT,
-                deadline DATETIME DEFAULT NULL,
-                completed BOOL NOT NULL DEFAULT FALSE,
-                link VARCHAR(255) NOT NULL,
-                previous INT DEFAULT NULL,
-                next INT DEFAULT NULL,
+                id           INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+                created_at   DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at   DATETIME              DEFAULT CURRENT_TIMESTAMP,
+                completed_at DATETIME              DEFAULT NULL,
+                deleted_at   DATETIME              DEFAULT NULL,
+                deleted      BOOL         NOT NULL DEFAULT FALSE,
+                title        VARCHAR(128),
+                description  VARCHAR(255),
+                details      TEXT,
+                deadline     DATETIME              DEFAULT NULL,
+                completed    BOOL         NOT NULL DEFAULT FALSE,
+                link         VARCHAR(255) NOT NULL,
+                previous     INT                   DEFAULT NULL,
+                next         INT                   DEFAULT NULL,
                 FOREING KEY (previous) REFERENCE tareas(id),
                 FOREING KEY (next) REFERENCE tareas(id)
             )
@@ -39,7 +39,7 @@ const initDatabase = function() {
         let realationsTableQuery = `
             CREATE TABLE IF NOT EXISTS relaciones(
                 id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-                task_id INT NOT NULL,
+                task_id         INT NOT NULL,
                 related_task_id INT NOT NULL,
                 FOREING KEY (task_id) REFERENCE tareas(id),
                 FOREING KEY (related_task_id) REFERENCE tareas(id)
