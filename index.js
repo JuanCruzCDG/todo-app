@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import path from 'path';
 import express from'express';
-import initDatabase from './config/db.js';
+import initDatabase from './src/config/db.js';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
