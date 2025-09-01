@@ -101,11 +101,28 @@ const TaskRepository = {
     },
     updateTask: async function(task) {
         try {
-            // const query = `
-            //     UPDATE tareas
-            //     SET 
-                    
-            // `;
+            const query = `
+                UPDATE tareas
+                SET 
+                    title = ${task.title},
+                    description = ${task.description},
+                    details = ${task.details},
+                    deadline = ${task.deadline},
+                    link = ${task.link},
+                    previous = ${task.previous},
+                    next = ${task.next},
+                    updaed_at == CURRENT_TIMESTAMP
+                WHERE id = ${task.id}
+            `;
+
+            await connection.query(query).then((error, results) => {
+                if (error) {
+                    console.error("Ocurrió un error intentando actualizar la tarea: ", error);
+                    return error;
+                }
+
+                return results;
+            });
         } catch (error) { return error; }
     },
     deleteTask: async function(id) {

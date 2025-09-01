@@ -6,22 +6,23 @@
         <title>Mis Tareas</title>
     </head>
     <body>
-        <section class="body-layout">
-            <div class="sidebar">barra lateral</div>
-            <div class="body-left">espacio a la izquierda</div>
-            <div class="body-middle">
-                <section class="list-layout">
-                    <div>tarea 1</div>
-                    <div>tarea 2</div>
-                    <div>tarea 3</div>
-                    <div>tarea 4</div>
-                    <div>tarea 5</div>
+        <section class="grid grid-cols-3 w-full">
+            <div class="sidebar" hidden >barra lateral</div>
+            <div class="h-full">espacio a la izquierda</div>
+            <div class="h-full">
+                <section class="flex flex-col flex-nowrap">
+                    <div class="flex-1 h-1/5">tarea 1</div>
+                    <div class="flex-1 h-1/5">tarea 2</div>
+                    <div class="flex-1 h-1/5">tarea 3</div>
+                    <div class="flex-1 h-1/5">tarea 4</div>
+                    <div class="flex-1 h-1/5">tarea 5</div>
                 </section>
             </div>
-            <div class="body-right">espacio a la derecha</div>
+            <div class="h-full">espacio a la derecha</div>
         </section>
     </body>
-    <link rel="stylesheet" type="text/css" href="/style/tailwind.css">
+    <link rel="stylesheet" type="text/css" href="/style/main.css">
     <link rel="stylesheet" type="text/css" href="/style/estilos.css">
+    <link rel="stylesheet" type="text/css" href="/style/tailwind.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </html>

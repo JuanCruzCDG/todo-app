@@ -26,13 +26,12 @@ const TaskService = {
         try {
             validator.validateTask(task);
             validator.validateFiledTypes(task);
+
             return await TaskRepository.createTask(task);
         } catch (error) { return error; }
     },
     updateTask: async function(task) {
         try {
-            const task = await this.getTaskById(task.id);
-
             validator.validateTask(task);
             validator.validateFiledTypes(task);
 

@@ -1,5 +1,0 @@
-@tailwind base;
-@tailwind components;
-@layer utilities {
-  .align-content-start { align-content: start; }
-}
