@@ -1,14 +1,42 @@
-<form id="form" name="create_task_form">
-    <div class="gird">
-        <label for="titulo"></label>
-        <input type="text" name="titulo" id="titulo">
-        <label for="descripcion"></label>
-        <input type="text" name="descripcion" id="descripcion">
-        <label for="detalles"></label>
-        <input type="text" name="detalles" id="detalles">
-        <label for="fecha_limite"></label>
-        <input type="text" name="fecha_limite" id="fecha_limite">
-        <button type="reset">Limpiar</button>
-        <button type="submit">Crear</button>
-    </div>
-</form>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mis Tareas</title>
+    </head>
+    <body class="min-h-screen bg-amber-100 dark:bg-stone-900 text-stone-900 dark:text-stone-300">
+        <nav>
+            <ul class="flex justify-center gap-2 py-2">
+                <li class="text-center w-40">
+                    <a href="/">Todas mis tareas</a>
+                </li>
+                <li class="text-center w-40">
+                    <a href="/task/create">Nueva tarea</a>
+                </li>
+                <li class="text-center w-40">
+                    <a href="/">Completadas</a>
+                </li>
+            </ul>
+        </nav>
+        <hr>
+        <form id="form" name="create_task_form" method="POST">
+            <div class="gird">
+                <label for="titulo">Título</label>
+                <input type="text" name="titulo" id="titulo">
+                <label for="descripcion">Descripción</label>
+                <input type="text" name="descripcion" id="descripcion">
+                <label for="detalles">Detalles adicionales</label>
+                <input type="text" name="detalles" id="detalles">
+                <label for="fecha_limite">Fecha límite</label>
+                <input type="text" name="fecha_limite" id="fecha_limite">
+                <button type="reset">Limpiar</button>
+                <button type="submit">Crear</button>
+            </div>
+        </form>
+    </body>
+    <link rel="stylesheet" type="text/css" href="/style/main.css">
+    <link rel="stylesheet" type="text/css" href="/style/estilos.css">
+    <link rel="stylesheet" type="text/css" href="/style/tailwind.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</html>

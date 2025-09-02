@@ -2,12 +2,6 @@
 
 .root { color-scheme: dark light; }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .theme-light {
     --card-pink: #f6c2d9;
     --cars-yellow: #fff69b;
@@ -16,4 +10,12 @@
     --card-gray: #e4dae2;
     background-color: moccasin;
     color: black;
+}
+
+.card {
+    @apply rounded-md border-2 shadow min-h-64
+}
+
+.yellow-style {
+    @apply  border-amber-300 bg-amber-200
 }

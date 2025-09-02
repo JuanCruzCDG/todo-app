@@ -5,12 +5,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mis Tareas</title>
     </head>
-    <body>
-        <section class="grid grid-cols-3 w-full">
-            <div class="sidebar" hidden >barra lateral</div>
-            <div class="h-full">espacio a la izquierda</div>
+    <body class="min-h-screen bg-amber-100 dark:bg-stone-900 text-stone-900 dark:text-stone-300">
+        <nav>
+            <ul class="flex justify-center gap-2 py-2">
+                <li class="text-center w-40">
+                    <a href="/src/templates/index.html">Todas mis tareas</a>
+                </li>
+                <li class="text-center w-40">
+                    <a href="/task/create">Nueva tarea</a>
+                </li>
+                <li class="text-center w-40">
+                    <a href="/src/templates/index.html">Completadas</a>
+                </li>
+            </ul>
+        </nav>
+        <hr>
+        <section class="grid grid-cols-3 w-full h-full">
+            <div class="h-full"></div>
             <div class="h-full">
-                <section class="flex flex-col flex-nowrap">
+                <section class="flex flex-col flex-nowrap justify-start align-middle">
                     <div class="flex-1 h-1/5">tarea 1</div>
                     <div class="flex-1 h-1/5">tarea 2</div>
                     <div class="flex-1 h-1/5">tarea 3</div>
@@ -18,7 +31,7 @@
                     <div class="flex-1 h-1/5">tarea 5</div>
                 </section>
             </div>
-            <div class="h-full">espacio a la derecha</div>
+            <div class="h-full"></div>
         </section>
     </body>
     <link rel="stylesheet" type="text/css" href="/style/main.css">

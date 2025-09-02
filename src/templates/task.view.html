@@ -1,13 +1,41 @@
-<section id="task_id">
-    <div class="gird">
-        <h1>Titulo</h1>
-        <h2>subtitulo</h2>
-        <p>descripcion</p>
-        <ul>
-            <li>paso 1</li>
-            <li>paso 2</li>
-            <li>paso 3</li>
-        </ul>
-        <div><span>fecha 1</span><span>fecha 2</span><span>fecha 3</span></div>
-    </div>
-</section>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mis Tareas</title>
+    </head>
+    <body class="min-h-screen bg-amber-100 dark:bg-stone-900 text-stone-900 dark:text-stone-300">
+        <nav>
+            <ul class="flex justify-center gap-2 py-2">
+                <li class="text-center w-40">
+                    <a href="/">Todas mis tareas</a>
+                </li>
+                <li class="text-center w-40">
+                    <a href="/task/create">Nueva tarea</a>
+                </li>
+                <li class="text-center w-40">
+                    <a href="/">Completadas</a>
+                </li>
+            </ul>
+        </nav>
+        <hr>
+        <section id="task_id" class="card yellow-style">
+            <div class="gird">
+                <h1>Titulo</h1>
+                <h2>subtitulo</h2>
+                <p>descripcion</p>
+                <ul>
+                    <li>paso 1</li>
+                    <li>paso 2</li>
+                    <li>paso 3</li>
+                </ul>
+                <div><span>fecha 1</span><span>fecha 2</span><span>fecha 3</span></div>
+            </div>
+        </section>
+    </body>
+    <link rel="stylesheet" type="text/css" href="/style/main.css">
+    <link rel="stylesheet" type="text/css" href="/style/estilos.css">
+    <link rel="stylesheet" type="text/css" href="/style/tailwind.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</html>

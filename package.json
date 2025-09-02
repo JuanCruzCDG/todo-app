@@ -15,7 +15,8 @@
   "scripts": {
     "test": "test",
     "start": "nodemon app.js",
-    "build:css": "npx tailwindcss -i ./public/style/main.css -o ./public/style/tailwind.css --watch"
+    "debug": "nodemon app.js --verbous",
+    "build:css": "npx tailwindcss -i ./public/style/input.css -o ./public/style/estilos.css --watch"
   },
   "dependencies": {
     "dotenv": "^17.2.1",
